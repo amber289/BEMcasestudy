@@ -17,19 +17,21 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.1.0
+        uses: actions/checkout@v7
 
       - name: Setup Python
-        uses: actions/setup-python@v5.6.0
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
       - name: Install Jupyter Book
-        run: pip install jupyter-book==0.15.1
+        run: |
+          pip install --upgrade pip
+          pip install jupyter-book==0.15.1
+          # Uncomment the line below if your notebooks import extra packages
+          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: List files for debugging
         run: ls -la && cat _config.yml && cat _toc.yml
@@ -38,7 +40,7 @@ jobs:
         run: jupyter-book build .
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3.0.1
+        uses: actions/upload-pages-artifact@v5
         with:
           path: "_build/html"
 
@@ -51,4 +53,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4.0.5
+        uses: actions/deploy-pages@v5
