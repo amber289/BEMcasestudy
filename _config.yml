@@ -5,6 +5,8 @@ copyright: "2026, Amber, Xinyu advised by Prof. Melody Baglione"
 only_build_toc_files: true
 
 exclude_patterns:
+  - workshops/downloads/** 
+  - workshops/static/**
   - README.md
   - LICENSE
   - .gitignore
