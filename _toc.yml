@@ -1,0 +1,15 @@
+format: jb-book
+root: workshops/docs/intro
+
+parts:
+  - caption: "Tutorials"
+    numbered: true
+    chapters:
+    - file: workshops/docs/01_module-one
+      sections:
+      - file: workshops/docs/01_1_bem
+      - file: workshops/docs/01_2_bem
+    - file: workshops/docs/02_module-two
+      sections:
+      - file: workshops/docs/02_1_case
+      - file: workshops/docs/02_2_case
