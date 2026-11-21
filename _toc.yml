@@ -1,5 +1,5 @@
 format: jb-book
-root: workshops/docs/intro
+root: docs/intro
 
 parts:
   - caption: "Tutorials"
